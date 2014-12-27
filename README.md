@@ -3,6 +3,8 @@ FclBlowfish
 
 An Objective-C Blowfish library
 
+	* Supports ECB and CBC mode
+
 # Developed By
 
   * Can Tecim - <can.tecim@gmail.com>

@@ -3,7 +3,7 @@ FclBlowfish
 
 An Objective-C Blowfish library
 
-  * Supports ECB and CBC mode
+  * Supports EBC and CBC mode
   * Supports padding RFC and Zero padding
 
 # Developed By

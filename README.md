@@ -8,7 +8,7 @@ An Objective-C Blowfish library
 
 # Developed By
 
-  * Can Tecim - <can.tecim@gmail.com>
+  * Can Tecim(Original Author) - <can.tecim@gmail.com>
   
 # License
 

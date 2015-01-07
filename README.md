@@ -9,6 +9,15 @@ An Objective-C Blowfish Implementation
   * Works compatible with PHP's Mcrypt
   * Originally coded for iOS SDK. It may work also for OS X SDK
 
+You easly find out how to use the library.
+Import it.
+Create an instance.
+Set IV and Key then cal prepare
+Do encryption or decryption
+
+# To-Do(s)
+  * Need to write a How-To-Use section which includes sample codes into readme
+
 # Developed By
 
   * Can Tecim(Original Author) - <can.tecim@gmail.com>

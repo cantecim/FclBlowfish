@@ -1,7 +1,8 @@
 FclBlowfish
 ===========
 
-An Objective-C Blowfish cryptography library
+An Objective-C Blowfish Implementation
+
 
   * Supports EBC and CBC mode
   * Supports padding RFC and Zero padding

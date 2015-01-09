@@ -15,6 +15,8 @@ Create an instance.
 Set IV and Key then cal prepare
 Do encryption or decryption
 
+  **Feel free to contribute**
+
 # To-Do(s)
   * Need to write a How-To-Use section which includes sample codes into readme
 

@@ -12,7 +12,7 @@ An Objective-C Blowfish Implementation
 You easly find out how to use the library.
 Import it.
 Create an instance.
-Set IV and Key then cal prepare
+Set IV and Key then call prepare
 Do encryption or decryption
 
   **Feel free to contribute**

@@ -24,14 +24,14 @@ FclBlowfish *bf = [[FclBlowfish alloc] init];
 bf.Key = @"37501370571307510";
 bf.IV = @"asdf";
 [bf prepare];
-NSLog(@"encrypt %@", [bf encrypt:@"selam" withMode:modeCBC withPadding:paddingRFC]);
+NSLog(@"encrypt %@", [bf encrypt:@"Hi there" withMode:modeCBC withPadding:paddingRFC]);
 ```
 ## Decrypt
 ```objc
 bf = [[FclBlowfish alloc] init];
 bf.Key = @"37501370571307510";
 bf.IV = @"asdf";
-[bf prepare];    NSLog(@"encrypt %@", [bf decrypt:[bf encrypt:@"selam" withMode:modeCBC withPadding:paddingRFC] withMode:modeCBC withPadding:paddingRFC]);
+[bf prepare];    NSLog(@"encrypt %@", [bf decrypt:[bf encrypt:@"Hi there" withMode:modeCBC withPadding:paddingRFC] withMode:modeCBC withPadding:paddingRFC]);
 ```
 ### Properties
 Property | Description | Restrictions | Suggestions

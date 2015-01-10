@@ -37,7 +37,7 @@ bf.IV = @"asdf";
 Property | Description | Restrictions | Suggestions
 -------- | ----------- | ------------ | -----------
 ***Key*** | This is the cryption key use it as salt | Must use 1 byte characters(ASCII table) | You can use md5 hashed text in hexadecimal format it will be 256 bit size then you can add extra 24 characters(192 bit) to reach 448 bit
-***IV*** | This is the initialization vector | No restricton | You need to implement an algrotihm for storing this in final crypted text. Simply you can add base64 encoded iv to end of crypted text. So your server(decryptor) can extract it from the text and use it for decryption. You must do this in order to use unique IV for all crypted text.
+***IV*** | This is the initialization vector | No restricton | You need to implement an algrotihm for storing this in final crypted text. Simply you can add base64 encoded iv to end of crypted text. So your server(decryptor) can extract it from the text and use it for decryption. You must do this in order to use unique IV for all crypted text. This way no one can crack it even they know the key you used
 
 # To-Do(s)
 

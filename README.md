@@ -40,7 +40,7 @@ Property | Description | Restrictions | Suggestions
 ***IV*** | This is the initialization vector | No restricton | You need to implement an algrotihm for storing this in final crypted text. Simply you can add base64 encoded iv to end of crypted text. So your server(decryptor) can extract it from the text and use it for decryption. You must do this in order to use unique IV for all crypted text. This way no one can crack it even they know the key you used
 
 # Troubleshooting
-  * If you use mcrypt_create_iv to generate iv string you may have problems decrypting in ios. Take a look at this issue : https://github.com/cantecim/FclBlowfish/issues/1
+  * If you use mcrypt_create_iv to generate iv string you may have problems decrypting in ios. Take a look at this issue : [#1](/../../issues/1)
 
 # To-Do(s)
 

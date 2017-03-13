@@ -43,7 +43,7 @@
     self->padding = pPadding;
     
     NSString *padded = [self pad:plain];
-    int len = [padded length];
+    NSUInteger len = [padded length];
     NSData *dPadded = [padded dataUsingEncoding:NSASCIIStringEncoding];
     unsigned char * cPadded = (unsigned char *)dPadded.bytes;
     unsigned char cIV[8];
@@ -54,7 +54,7 @@
     NSData *dIV = [self->IV dataUsingEncoding:NSASCIIStringEncoding];
     memcpy(&cIV[0], dIV.bytes, 8);
     
-    for(int i = 0; i < len; i += self->blockSize) {
+    for(NSUInteger i = 0; i < len; i += self->blockSize) {
         SInt32 xl = 0;
         SInt32 xr = 0;
         if(self->mode == modeCBC) {
@@ -116,7 +116,7 @@
     
     self->mode = pMode;
     self->padding = pPadding;
-    int len = [crypted length];
+    NSUInteger len = [crypted length];
     NSData *dCrypted = [crypted dataUsingEncoding:NSISOLatin1StringEncoding];
     unsigned char * cCrypted = (unsigned char *)dCrypted.bytes;
     NSData *dPlain = [NSData dataWithData:dCrypted];
@@ -129,7 +129,7 @@
     NSData *dIV = [self->IV dataUsingEncoding:NSASCIIStringEncoding];
     memcpy(&cIV[0], dIV.bytes, 8);
     
-    for(int i = 0; i < len; i += self->blockSize)
+    for(NSUInteger i = 0; i < len; i += self->blockSize)
     {
         SInt32 xl = 0;
         SInt32 xr = 0;
@@ -198,10 +198,7 @@
         NSLog(@"Key shouldn't larger than 56 bytes (448 bits)");
         return;
     }
-    
-    unsigned short int size = sizeof(self->P) / sizeof(SInt32);
-    NSLog(@"%d", size); // this code just for the respect of C! I don't like NSArray :(
-    
+
     // Reset the S and P
     for(int i = 0; i < 18; i++)
         self->P[i] = Default_P[i];
@@ -210,9 +207,9 @@
         for(int j = 0; j < 256; j++)
             self->S[i][j] = Default_S[i][j];
     
-    int j = 0;
-    int len = [Key length];
-    for(int i = 0; i < self->N + 2; i++) {
+    NSUInteger j = 0;
+    NSUInteger len = [Key length];
+    for(NSUInteger i = 0; i < self->N + 2; i++) {
         SInt32 data = 0;
         for(int k = 0; k < 4; k++) {
             data = (data << 8) | (int)cKey[j];
@@ -240,13 +237,13 @@
 
 - (NSString *)pad:(NSString *)plain
 {
-    unsigned int len = [plain length];
-    int needpad = (len < self->blockSize) ? self->blockSize - len : (self->blockSize - (len % self->blockSize)) % self->blockSize;
+    NSUInteger len = [plain length];
+    NSInteger needpad = (len < self->blockSize) ? self->blockSize - len : (self->blockSize - (len % self->blockSize)) % self->blockSize;
     NSString *padder;
     
     switch (self->padding) {
         case paddingRFC:
-            padder = [NSString stringWithFormat:@"%c", needpad];
+            padder = [NSString stringWithFormat:@"%c", (int)needpad];
             break;
         case paddingZero:
             padder = @"\0";
@@ -261,11 +258,11 @@
 
 - (NSString *)removePad:(NSString *)plain
 {
-    unsigned int paddedlen = [plain characterAtIndex:[plain length] - 1];
+    NSUInteger paddedlen = [plain characterAtIndex:[plain length] - 1];
     
     switch (self->padding) {
         case paddingRFC: {
-            int index = [plain length] - paddedlen;
+            NSInteger index = [plain length] - paddedlen;
             if(index < 0 || index > [plain length] - 1)
                 return plain;
             NSString *sPadding = [plain substringFromIndex:index];

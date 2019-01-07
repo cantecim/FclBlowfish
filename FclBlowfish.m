@@ -239,6 +239,10 @@
 {
     NSUInteger len = [plain length];
     NSInteger needpad = (len < self->blockSize) ? self->blockSize - len : (self->blockSize - (len % self->blockSize)) % self->blockSize;
+    // If you're going to pad, you must always pad, even if the length is a multiple of the block size, otherwise, you might mistake actual data for a pad byte
+    if (needpad == 0) {
+        needpad = self->blockSize;
+    }
     NSString *padder;
     
     switch (self->padding) {
